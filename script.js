@@ -28,11 +28,11 @@ clicCount.onclick = function() {
   //   subbar.className = (subbar.className + " show").replace(/ show show/, "");
   // });
 
-  let navbar = document.querySelector('button');
+  let menu = document.querySelector('button');
   let humburgerMenu = document.getElementById('navbarHeader');
   
   
-  navbar.addEventListener("click", toggleHamburger);
+  menu.addEventListener("click", toggleHamburger);
   
   function toggleHamburger(){
     humburgerMenu.classList.toggle("collapse")
@@ -89,15 +89,42 @@ navbar.addEventListener('dblclick',function(){
 });
 
 
-
-// T'as demandé la reponse ahah T'es forte = Jai demandé comment faire le if pcq yavait laction au dessus. Et ils mont dit : ba tas fait pareil au dessus. Et jai dit : ah oui
-
-// JE PUSH
 // Fonctionnalité 6 : si un utilisateur passe sa souris sur le bouton "View" d'une card (n'importe laquelle), celle-ci va se réduire. Cela veut dire que le texte disparaît, l'image n'apparaîtra qu'à 20 % de sa taille d'origine et les boutons "Edit" / "View" restent visibles. Cette fonction sera réversible : s'il repasse sa souris, la card redevient normale !
+
+
+var cardContent = document.getElementsByClassName('card')[2];
+console.log(cardContent)
+
+var viewButton = cardContent.querySelector('button');
+console.log(viewButton)
+
+var text = document.getElementsByClassName('card-text')[2];
+console.log(text)
+
+var image = document.getElementsByClassName('card-img-top')[2];
+console.log(image)
+// var buttons = document.getElementsByClassName('btn-group')[2];
+// console.log('buttons')
+
+//1-texte disparaît
+//2-image n'apparaîtra qu'à 20 % de sa taille d'origine
+//3-les boutons "Edit" / "View" restent visibles.
+viewButton.addEventListener('mouseover',function(){
+  if (text.style.display === "initial"){
+    text.style.display = "none";
+    image.style.width = "20%"
+  }
+  else {
+    text.style.display = "initial";
+    image.style.width = "initial";
+    image.style.height = "initial";
+  }
+
+});
+
+
 
 
 
   
-  // function toggleHamburger(){
-  //   humburgerMenu.classList.toggle("collapse")
-  // }
+
